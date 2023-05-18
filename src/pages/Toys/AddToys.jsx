@@ -38,7 +38,7 @@ const AddToys = () => {
         <select {...register("subCategory")} className="input input-bordered w-1/2 me-5 mt-3">
           <option value="" defaultChecked>SubCategory</option>
           <option value="math">Math</option>
-          <option value="language">Language </option>
+          <option value="engineering kits">engineering kits </option>
           <option value="science">Science </option>
           <option value="iq">IQ</option>
         </select>
