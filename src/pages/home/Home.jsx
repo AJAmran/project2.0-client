@@ -1,19 +1,40 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import e1 from "../../assets/e1.jpeg";
 import PhotoGellery from "./PhotoGellery";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import 'react-tabs/style/react-tabs.css';
-
+import ReactStars from "react-rating-stars-component";
+import "react-tabs/style/react-tabs.css";
+import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Home = () => {
+  const { user } = useContext(AuthContext);
   const alltoys = useLoaderData();
   console.log(alltoys);
+  const navigate = useNavigate();
 
-  const mathToy = alltoys.filter(obj => obj.subCategory === "math").slice(0, 2);
-  const scienceToy = alltoys.filter(obj => obj.subCategory === "science").slice(0, 2);
-  const engineeringToy = alltoys.filter(obj => obj.subCategory === "engineering kits").slice(0, 2);
-  console.log(mathToy, scienceToy, engineeringToy)
+  const mathToy = alltoys
+    .filter((obj) => obj.subCategory === "math")
+    .slice(0, 6);
+  const scienceToy = alltoys
+    .filter((obj) => obj.subCategory === "science")
+    .slice(0, 6);
+  const engineeringToy = alltoys
+    .filter((obj) => obj.subCategory === "engineering kits")
+    .slice(0, 6);
+  console.log(mathToy, scienceToy, engineeringToy);
 
+  const handleViewDetails = (id) => {
+    if (!user?.email) {
+      Swal.fire({
+        title: "Error!",
+        text: "You have to log in first to view details",
+        icon: "error",
+        confirmButtonText: "close",
+      });
+    }
+  };
 
   return (
     <div>
@@ -42,7 +63,11 @@ const Home = () => {
       {/* react tab */}
 
       <div className="container mx-auto mt-5">
-        <Tabs forceRenderTabPanel defaultIndex={1} className="border bg-slate-100 rounded-lg p-3">
+        <Tabs
+          forceRenderTabPanel
+          defaultIndex={1}
+          className="border bg-slate-100 rounded-lg p-3"
+        >
           <TabList className="text-center bg-ing text-xl font-bold">
             <Tab>The toys</Tab>
           </TabList>
@@ -54,48 +79,127 @@ const Home = () => {
                 <Tab>Science Toys</Tab>
               </TabList>
               <TabPanel>
-                <p>Husband of Marge; father of Bart, Lisa, and Maggie.</p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Homer_Simpson_2006.png/212px-Homer_Simpson_2006.png"
-                  alt="Homer Simpson"
-                />
+                <div className="grid grid-cols-1 md:grid-cols-3 bg-white">
+                  {mathToy.map((mtoy) => (
+                    <div key={mtoy?._id} className="m-4">
+                      <div className="card w-full bg-base-100 shadow-xl border h-full">
+                        <figure>
+                          <img
+                            src={mtoy?.toyImg}
+                            alt="Shoes"
+                            className="h-40 p-2 rounded"
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h2 className="card-title">
+                            {mtoy?.toyName}
+                            {/* <div className="badge badge-secondary">View Details</div> */}
+                            <ReactStars
+                              value={mtoy?.rating}
+                              edit={false}
+                              isHalf={true}
+                              size={20}
+                            ></ReactStars>
+                          </h2>
+                          <p className="p-0 m-0">{mtoy?.details}</p>
+                          <div className="card-actions justify-end">
+                            <p className="p-0 m-0">Price: {mtoy?.price}</p>
+                            <button
+                              onClick={() => handleViewDetails(mtoy._id)}
+                              className="btn btn-outline btn-info"
+                            >
+                              <Link to={`/singleToy/${mtoy?._id}`}>
+                                View Details
+                              </Link>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </TabPanel>
               <TabPanel>
-                <p>Wife of Homer; mother of Bart, Lisa, and Maggie.</p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Marge_Simpson.png/220px-Marge_Simpson.png"
-                  alt="Marge Simpson"
-                />
+                <div className="grid grid-cols-1 md:grid-cols-3 bg-white">
+                  {engineeringToy.map((mtoy) => (
+                    <div key={mtoy?._id} className="m-4">
+                      <div className="card w-full bg-base-100 shadow-xl border h-full">
+                        <figure>
+                          <img
+                            src={mtoy?.toyImg}
+                            alt="Shoes"
+                            className="h-40 p-2 rounded"
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h2 className="card-title">
+                            {mtoy?.toyName}
+                            {/* <div className="badge badge-secondary">View Details</div> */}
+                            <ReactStars
+                              value={mtoy?.rating}
+                              edit={false}
+                              isHalf={true}
+                              size={20}
+                            ></ReactStars>
+                          </h2>
+                          <p className="p-0 m-0">{mtoy?.details}</p>
+                          <div className="card-actions justify-end">
+                            <p className="p-0 m-0">Price: {mtoy?.price}</p>
+                            <button
+                              onClick={() => handleViewDetails(mtoy._id)}
+                              className="btn btn-outline btn-info"
+                            >
+                              <Link to={`/singleToy/${mtoy?._id}`}>
+                                View Details
+                              </Link>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </TabPanel>
               <TabPanel>
-                <p>
-                  Oldest child and only son of Homer and Marge; brother of Lisa
-                  and Maggie.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png"
-                  alt="Bart Simpson"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Middle child and eldest daughter of Homer and Marge; sister of
-                  Bart and Maggie.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/Lisa_Simpson.png/200px-Lisa_Simpson.png"
-                  alt="Lisa Simpson"
-                />
-              </TabPanel>
-              <TabPanel>
-                <p>
-                  Youngest child and daughter of Homer and Marge; sister of Bart
-                  and Lisa.
-                </p>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Maggie_Simpson.png/223px-Maggie_Simpson.png"
-                  alt="Maggie Simpson"
-                />
+                <div className="grid grid-cols-1 md:grid-cols-3 bg-white">
+                  {scienceToy.map((mtoy) => (
+                    <div key={mtoy?._id} className="m-4">
+                      <div className="card w-full bg-base-100 shadow-xl border h-full">
+                        <figure>
+                          <img
+                            src={mtoy?.toyImg}
+                            alt="Shoes"
+                            className="h-40 p-2 rounded"
+                          />
+                        </figure>
+                        <div className="card-body">
+                          <h2 className="card-title">
+                            {mtoy?.toyName}
+                            {/* <div className="badge badge-secondary">View Details</div> */}
+                            <ReactStars
+                              value={mtoy?.rating}
+                              edit={false}
+                              isHalf={true}
+                              size={20}
+                            ></ReactStars>
+                          </h2>
+                          <p className="p-0 m-0">{mtoy?.details}</p>
+                          <div className="card-actions justify-end">
+                            <p className="p-0 m-0">Price: {mtoy?.price}</p>
+                            <button
+                              onClick={() => handleViewDetails(mtoy._id)}
+                              className="btn btn-outline btn-info"
+                            >
+                              <Link to={`/singleToy/${mtoy?._id}`}>
+                                View Details
+                              </Link>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </TabPanel>
             </Tabs>
           </TabPanel>

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/AuthProvider";
+import Swal from 'sweetalert2'
 import toyimg from '../../assets/toyform.jpg'
 
 const AddToys = () => {
@@ -22,6 +23,12 @@ const AddToys = () => {
     })
       .then((res) => res.json())
       .then((infs) => {
+        Swal.fire({
+          title: 'success!',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Done'
+        })
         console.log(infs);
       });
 
