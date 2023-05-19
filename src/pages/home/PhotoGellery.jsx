@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const PhotoGellery = () => {
     const [images, setImages] = useState([])
     useEffect(() =>{
-        fetch(`http://localhost:5000/alltoys`)
+        fetch(`https://toy-market-place-server-nine.vercel.app/alltoys`)
         .then(res => res.json())
         .then(data => {
             setImages(data)
