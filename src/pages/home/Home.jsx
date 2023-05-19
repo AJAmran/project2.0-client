@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import e1 from "../../assets/e1.jpeg";
 import PhotoGellery from "./PhotoGellery";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
@@ -12,7 +12,6 @@ const Home = () => {
   const { user } = useContext(AuthContext);
   const alltoys = useLoaderData();
   console.log(alltoys);
-  const navigate = useNavigate();
 
   const mathToy = alltoys
     .filter((obj) => obj.subCategory === "math")
