@@ -52,7 +52,7 @@ const MyToys = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 mb-10">
+    <div className="container mx-auto h-screen mt-10">
       <div className="flex justify-end items-center mb-2">
         <h1 className="pr-3 text-md font-bold">Sort By </h1>
         <select className="select select-accent w-full max-w-xs" value={sortOrder} onChange={handleSortChange}>

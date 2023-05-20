@@ -5,7 +5,7 @@ const SingleToys = () => {
   const singleData = useLoaderData();
   console.log(singleData);
   return (
-    <div className="mt-16 mb-36">
+    <div className="mt-16 mb-36 h-screen">
       <div className="hero container mx-auto">
         <div className="hero-content flex-col lg:flex-row border rounded-lg">
           <img

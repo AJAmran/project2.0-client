@@ -38,7 +38,7 @@ const UpdateToys = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-16 mb-52">
       <form onSubmit={handleSubmit(onSubmit)} className="">
         <h1 className="text-2xl font-semibold text-left py-5">
           Update Your Toys info
@@ -102,7 +102,7 @@ const UpdateToys = () => {
         <input
           type="submit"
           value="Add a toy"
-          className="w-5/6 ms-2 btn btn-info text-white mt-3"
+          className="w-5/6 ms-2 py-3 rounded-lg text-xl bg-orange-500 text-white mt-3"
         />
       </form>
     </div>

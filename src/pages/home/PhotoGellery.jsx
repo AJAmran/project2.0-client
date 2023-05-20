@@ -12,7 +12,7 @@ const PhotoGellery = () => {
     }, [])
 
 
-    const [visibleImages, setVisibleImages] = useState(6); // Number of initially visible images
+    const [visibleImages, setVisibleImages] = useState(8); // Number of initially visible images
 
     const showMoreImages = () => {
       setVisibleImages(prevVisibleImages => prevVisibleImages + 10); // Increase the number of visible images by 10
@@ -20,10 +20,10 @@ const PhotoGellery = () => {
 
   return (
     <div className="container mx-auto p-4">
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 border p-4 rounded-lg bg-slate-100">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 border p-4 rounded-lg bg-slate-100">
       {images.slice(0, visibleImages).map((image, index) => (
         <div key={index} className="border rounded">
-          <img src={image.toyImg} alt={`Image ${index + 1}`} className="w-full h-72" />
+          <img src={image.toyImg} alt={`Image ${index + 1}`} className="w-full lg:h-72 h-40" />
           <h1 className="text-lg font-semibold px-2 pb-2 m-0 bg-white">{image?.toyName}</h1>
         </div>
       ))}
@@ -32,7 +32,7 @@ const PhotoGellery = () => {
       <div className="mt-4 flex justify-center">
         <button
           onClick={showMoreImages}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
         >
           Show More
         </button>

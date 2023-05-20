@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
-import e1 from "../../assets/e1.jpeg";
+import banner from "../../assets/banner.jpg";
 import PhotoGellery from "./PhotoGellery";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import ReactStars from "react-rating-stars-component";
@@ -7,6 +7,8 @@ import "react-tabs/style/react-tabs.css";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import Work from "./Work";
+import CreativeToy from "./CreativeToy";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -39,23 +41,33 @@ const Home = () => {
     <div>
       {/* bannaer section */}
 
-      <div className="hero bg-slate-100">
-        <div className="hero-content flex-col lg:flex-row-reverse justify-between">
-          <img src={e1} className="rounded-lg shadow-2xl" />
-          <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
+      <div className="h-[620px]">
+        <div
+          className="hero h-full w-auto container mx-auto bg-opacity-60"
+          style={{
+            backgroundImage: `url(${banner})`,
+          }}
+        >
+          <div className="hero-overlay bg-opacity-60"></div>
+          <div className="hero-content text-center text-neutral-content">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl font-bold">Welcome!!!</h1>
+              <p className="mb-5">
+                Here adventure meets learning! Explore interactive games,
+                captivating stories, educational videos, and more. Join us for
+                an exhilarating journey in a safe online environment. Let the
+                fun begin!
+              </p>
+              <button className="bg-orange-500 px-3 py-3 text-xl rounded-lg">
+                Shop Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
       {/* gallery section */}
       <div className="mt-10">
-        <h1 className="text-4xl font-bold text-center mb-3">Toys Gallery</h1>
+        <h1 className="text-2xl font-bold text-center mb-3">Toys Gallery</h1>
         <PhotoGellery></PhotoGellery>
       </div>
 
@@ -204,6 +216,11 @@ const Home = () => {
           </TabPanel>
         </Tabs>
       </div>
+
+      {/* How it work */}
+      <Work></Work>
+      {/* CreativeWork */}
+      <CreativeToy></CreativeToy>
     </div>
   );
 };

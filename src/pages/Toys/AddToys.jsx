@@ -25,7 +25,7 @@ const AddToys = () => {
       .then((infs) => {
         Swal.fire({
           title: 'success!',
-          text: 'You toy have been successfully added',
+          text: 'Your toy have been successfully added',
           icon: 'success',
           confirmButtonText: 'Done'
         })
@@ -35,7 +35,7 @@ const AddToys = () => {
     console.log(data);
   };
   return (
-    <div className="container mx-auto flex mt-24 mb-24 items-center">
+    <div className="container mx-auto flex mt-24 mb-44 items-center">
       <form onSubmit={handleSubmit(onSubmit)} className="mx-auto w-full">
         <h1 className="text-2xl font-semibold text-left py-5">Submit Your Toys info</h1>
         <input {...register("toyImg")} className="input input-bordered w-1/2 me-5" placeholder="Picture URL of the toy"/>
@@ -54,7 +54,7 @@ const AddToys = () => {
         <input {...register("quantity")} className="input input-bordered w-2/6" placeholder="Available quantity"/>
         <input {...register("details")} className="input input-bordered w-1/2 me-5 mt-3" placeholder="Details of the toy"/>
         <input {...register("date")} className="input input-bordered w-2/6" placeholder="" type="date"/>
-        <input type="submit" value="Add a toy" className="w-5/6 ms-2 btn btn-info text-white mt-3"/>
+        <input type="submit" value="Add a toy" className="w-5/6 ms-2 py-3 rounded-lg font-bold text-xl bg-orange-500 text-white mt-3"/>
       </form>
       <div>
         <img src={toyimg} alt="" />

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo.svg";
+import logo from "../../../assets/logo.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
-
+  console.log(user?.photoURL)
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
@@ -34,6 +34,10 @@ const Navbar = () => {
         {" "}
         <Link className = 'font-bold' to="/alltoys">All Toys</Link>{" "}
       </li>
+      <li>
+        {" "}
+        <Link className = 'font-bold' to="/blogs">Blogs</Link>{" "}
+      </li>
       {user?.email ? (
         <div className="flex flex-col md:flex-row">
           <li>
@@ -43,6 +47,9 @@ const Navbar = () => {
           <li>
             {" "}
             <Link className = 'font-bold' to="/addtoys">Add A Toy</Link>{" "}
+          </li>
+          <li>
+            <button className="font-bold" onClick={hangleLogOut}>Logout</button>
           </li>
           <li>
             <div
@@ -56,23 +63,16 @@ const Navbar = () => {
               )}
             </div>
           </li>
-          <li>
-            <button className="font-bold" onClick={hangleLogOut}>Logout</button>
-          </li>
         </div>
       ) : (
         <li>
           <Link className = 'font-bold' to="/login">Login</Link>
         </li>
       )}
-      <li>
-        {" "}
-        <Link className = 'font-bold' to="/blogs">Blogs</Link>{" "}
-      </li>
     </>
   );
   return (
-    <div className="bg-slate-200">
+    <div className="shadow">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -100,14 +100,14 @@ const Navbar = () => {
             </ul>
           </div>
           <Link className = 'font-bold' to="/">
-            <img src={logo} alt="" className="h-24" />
+            <img src={logo} alt="" className="h-20" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-outline btn-info">Shop Now</button>
+          <button className="bg-orange-500 text-white px-3 py-3 rounded-lg font-semibold">Shop Now</button>
         </div>
       </div>
     </div>

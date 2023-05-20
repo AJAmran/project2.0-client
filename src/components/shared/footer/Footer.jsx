@@ -1,8 +1,8 @@
-import logo from "../../../assets/logo.svg";
+import logo from "../../../assets/logo.png";
 
 const Footer = () => {
   return (
-    <div className=" bg-slate-100 p-5">
+    <div className="shadow-lg border p-5">
       <footer className="footer container mx-auto">
         <div>
           <img src={logo} alt="" className="h-24"/>
