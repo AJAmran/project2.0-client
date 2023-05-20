@@ -101,7 +101,7 @@ const Registration = () => {
               <div className="form-control mt-6">
                 <input
                   type="submit"
-                  value="Login"
+                  value="Register"
                   className="btn btn-info btn-outline"
                 />
               </div>

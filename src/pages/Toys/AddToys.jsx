@@ -25,7 +25,7 @@ const AddToys = () => {
       .then((infs) => {
         Swal.fire({
           title: 'success!',
-          text: 'Do you want to continue',
+          text: 'You toy have been successfully added',
           icon: 'success',
           confirmButtonText: 'Done'
         })

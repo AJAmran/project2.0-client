@@ -57,12 +57,12 @@ const AllToys = () => {
           </thead>
           <tbody>
             {toys?.map((toy, index) => (
-              <tr key={toy._id}>
+              <tr key={toy?._id}>
                 <td>{index + 1}</td>
-                <td>{user?.displayName}</td>
-                <td>{toy.toyName}</td>
-                <td>{toy.subCategory}</td>
-                <td>{toy.price}</td>
+                <td>{toy?.sellerName}</td>
+                <td>{toy?.toyName}</td>
+                <td>{toy?.subCategory}</td>
+                <td>{toy?.price}</td>
                 <td>
                   <button className="btn btn-outline btn-info">
                     <Link to={`/singleToy/${toy?._id}`}>View Details</Link>
