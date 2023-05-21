@@ -2,8 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import registerphoto from "../../assets/register.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const Registration = () => {
+  useTitle("Registration")
   const { registerUser, LogOut, updateUser } = useContext(AuthContext);
   const [error, setError] = useState();
   const navigte = useNavigate();

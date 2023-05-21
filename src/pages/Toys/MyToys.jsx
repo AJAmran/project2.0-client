@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../Hooks/useTitle";
 
 const MyToys = () => {
   const [toys, setToys] = useState();
   const { user } = useContext(AuthContext);
   const [sortOrder, setSortOrder] = useState('asc');
+  useTitle('My Toys')
 
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);

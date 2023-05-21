@@ -1,5 +1,7 @@
+import useTitle from "../../Hooks/useTitle";
 
 const Blog = () => {
+    useTitle('Blog')
     return (
         <div className="container mx-auto my-10">
             <div className="mb-4 border">

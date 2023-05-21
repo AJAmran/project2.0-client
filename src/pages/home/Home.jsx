@@ -9,11 +9,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Work from "./Work";
 import CreativeToy from "./CreativeToy";
+import useTitle from "../../Hooks/useTitle";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
   const alltoys = useLoaderData();
-  console.log(alltoys);
+  useTitle('Home')
 
   const mathToy = alltoys
     .filter((obj) => obj.subCategory === "math")

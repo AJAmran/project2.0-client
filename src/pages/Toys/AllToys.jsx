@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [searchText, setSearchText] = useState("");
   console.log(searchText);
   const { user } = useContext(AuthContext);
+  useTitle("AllToys")
 
   useEffect(() => {
     fetch("https://toy-market-place-server-nine.vercel.app/twentyToys")
