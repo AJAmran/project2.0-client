@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const PhotoGellery = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
     const [images, setImages] = useState([])
     useEffect(() =>{
         fetch(`https://toy-market-place-server-nine.vercel.app/alltoys`)
@@ -22,7 +27,9 @@ const PhotoGellery = () => {
     <div className="container mx-auto p-4">
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 border p-4 rounded-lg bg-slate-100">
       {images.slice(0, visibleImages).map((image, index) => (
-        <div key={index} className="border rounded">
+        <div key={index} className="border rounded"
+        data-aos="flip-up"
+        >
           <img src={image.toyImg} alt={`Image ${index + 1}`} className="w-full lg:h-72 h-40" />
           <h1 className="text-lg font-semibold px-2 pb-2 m-0 bg-white">{image?.toyName}</h1>
         </div>
