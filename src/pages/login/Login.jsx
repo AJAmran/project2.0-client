@@ -10,9 +10,8 @@ import useTitle from "../../Hooks/useTitle";
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-
 const Login = () => {
-  useTitle("Login")
+  useTitle("Login");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";

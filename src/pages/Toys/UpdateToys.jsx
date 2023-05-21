@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 
 const UpdateToys = () => {
   const toy = useLoaderData();
-  const {_id}= toy;
-  console.log(_id)
+  const { _id } = toy;
+  console.log(_id);
   const {
     register,
     handleSubmit,
@@ -25,14 +25,14 @@ const UpdateToys = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        if(result.modifiedCount > 0){
+        if (result.modifiedCount > 0) {
           Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Your toy has been Updated',
+            position: "center",
+            icon: "success",
+            title: "Your toy has been Updated",
             showConfirmButton: false,
-            timer: 1500
-          })
+            timer: 1500,
+          });
         }
       });
   };

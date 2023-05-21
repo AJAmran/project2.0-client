@@ -6,10 +6,11 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext);
   const [isHovered, setIsHovered] = useState(false);
+
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
-  console.log(user?.photoURL)
+  console.log(user?.photoURL);
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
@@ -28,28 +29,40 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link className = 'font-bold' to="/">Home</Link>{" "}
+        <Link className="font-bold" to="/">
+          Home
+        </Link>{" "}
       </li>
       <li>
         {" "}
-        <Link className = 'font-bold' to="/alltoys">All Toys</Link>{" "}
+        <Link className="font-bold" to="/alltoys">
+          All Toys
+        </Link>{" "}
       </li>
       <li>
         {" "}
-        <Link className = 'font-bold' to="/blogs">Blogs</Link>{" "}
+        <Link className="font-bold" to="/blogs">
+          Blogs
+        </Link>{" "}
       </li>
       {user?.email ? (
         <div className="flex flex-col md:flex-row">
           <li>
             {" "}
-            <Link className = 'font-bold' to="/mytoys">My Toys</Link>{" "}
+            <Link className="font-bold" to="/mytoys">
+              My Toys
+            </Link>{" "}
           </li>
           <li>
             {" "}
-            <Link className = 'font-bold' to="/addtoys">Add A Toy</Link>{" "}
+            <Link className="font-bold" to="/addtoys">
+              Add A Toy
+            </Link>{" "}
           </li>
           <li>
-            <button className="font-bold" onClick={hangleLogOut}>Logout</button>
+            <button className="font-bold" onClick={hangleLogOut}>
+              Logout
+            </button>
           </li>
           <li>
             <div
@@ -66,7 +79,9 @@ const Navbar = () => {
         </div>
       ) : (
         <li>
-          <Link className = 'font-bold' to="/login">Login</Link>
+          <Link className="font-bold" to="/login">
+            Login
+          </Link>
         </li>
       )}
     </>
@@ -99,7 +114,7 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <Link className = 'font-bold' to="/">
+          <Link className="font-bold" to="/">
             <img src={logo} alt="" className="h-20" />
           </Link>
         </div>
@@ -107,7 +122,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <button className="bg-orange-500 text-white px-3 py-3 rounded-lg font-semibold">Shop Now</button>
+          <button className="bg-orange-500 text-white px-3 py-3 rounded-lg font-semibold">
+            Shop Now
+          </button>
         </div>
       </div>
     </div>

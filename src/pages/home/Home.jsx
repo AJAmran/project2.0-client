@@ -14,7 +14,7 @@ import useTitle from "../../Hooks/useTitle";
 const Home = () => {
   const { user } = useContext(AuthContext);
   const alltoys = useLoaderData();
-  useTitle('Home')
+  useTitle("Home");
 
   const mathToy = alltoys
     .filter((obj) => obj.subCategory === "math")

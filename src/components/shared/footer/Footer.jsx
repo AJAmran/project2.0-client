@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="shadow-lg border p-5">
       <footer className="footer container mx-auto">
         <div className="md:text-center text-left">
-          <img src={logo} alt="" className="h-24"/>
+          <img src={logo} alt="" className="h-24" />
           <p>
             <span className="text-xl font-bold">EduToysHub</span>
             <br />

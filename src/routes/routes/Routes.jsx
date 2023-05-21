@@ -21,7 +21,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('https://toy-market-place-server-nine.vercel.app/alltoys')
+        loader: () =>
+          fetch("https://toy-market-place-server-nine.vercel.app/alltoys"),
       },
       {
         path: "/login",
@@ -36,27 +37,45 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
-        path: '/addtoys',
-        element: <PrivateRoute><AddToys></AddToys></PrivateRoute>
+        path: "/addtoys",
+        element: (
+          <PrivateRoute>
+            <AddToys></AddToys>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/alltoys',
-        element:<AllToys></AllToys>,
+        path: "/alltoys",
+        element: <AllToys></AllToys>,
       },
       {
-        path: '/mytoys',
-        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
+        path: "/mytoys",
+        element: (
+          <PrivateRoute>
+            <MyToys></MyToys>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/singleToy/:id',
-        element: <PrivateRoute><SingleToys></SingleToys></PrivateRoute>,
-        loader: ({params}) => fetch(`https://toy-market-place-server-nine.vercel.app/singleToys/${params.id}`)
+        path: "/singleToy/:id",
+        element: (
+          <PrivateRoute>
+            <SingleToys></SingleToys>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-market-place-server-nine.vercel.app/singleToys/${params.id}`
+          ),
       },
       {
-        path: '/toysUpdate/:id',
+        path: "/toysUpdate/:id",
         element: <UpdateToys></UpdateToys>,
-        loader: ({params}) => fetch(`https://toy-market-place-server-nine.vercel.app/singleToys/${params.id}`)
-      }
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-market-place-server-nine.vercel.app/singleToys/${params.id}`
+          ),
+      },
     ],
   },
 ]);

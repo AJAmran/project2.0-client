@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import useTitle from "../../Hooks/useTitle";
 
 const SingleToys = () => {
-  useTitle("ToysDetails")
+  useTitle("ToysDetails");
   const singleData = useLoaderData();
   console.log(singleData);
   return (

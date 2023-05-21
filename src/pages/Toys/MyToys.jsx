@@ -7,14 +7,14 @@ import useTitle from "../../Hooks/useTitle";
 const MyToys = () => {
   const [toys, setToys] = useState();
   const { user } = useContext(AuthContext);
-  const [sortOrder, setSortOrder] = useState('asc');
-  useTitle('My Toys')
+  const [sortOrder, setSortOrder] = useState("asc");
+  useTitle("My Toys");
 
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);
   };
 
-  console.log(sortOrder)
+  console.log(sortOrder);
   useEffect(() => {
     fetch(
       `https://toy-market-place-server-nine.vercel.app/myToys/${user.email}?sort=${sortOrder}`
@@ -57,7 +57,11 @@ const MyToys = () => {
     <div className="container mx-auto h-screen mt-10">
       <div className="flex justify-end items-center mb-2">
         <h1 className="pr-3 text-md font-bold">Sort By </h1>
-        <select className="select select-accent w-full max-w-xs" value={sortOrder} onChange={handleSortChange}>
+        <select
+          className="select select-accent w-full max-w-xs"
+          value={sortOrder}
+          onChange={handleSortChange}
+        >
           <option value="asc">Price (High to Low)</option>
           <option value="desc">Price (Low to High)</option>
         </select>

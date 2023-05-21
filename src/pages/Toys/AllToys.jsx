@@ -8,7 +8,7 @@ const AllToys = () => {
   const [searchText, setSearchText] = useState("");
   console.log(searchText);
   const { user } = useContext(AuthContext);
-  useTitle("AllToys")
+  useTitle("AllToys");
 
   useEffect(() => {
     fetch("https://toy-market-place-server-nine.vercel.app/twentyToys")
