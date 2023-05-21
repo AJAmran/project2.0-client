@@ -58,8 +58,8 @@ const MyToys = () => {
       <div className="flex justify-end items-center mb-2">
         <h1 className="pr-3 text-md font-bold">Sort By </h1>
         <select className="select select-accent w-full max-w-xs" value={sortOrder} onChange={handleSortChange}>
-          <option value="asc">Price (Low to High)</option>
-          <option value="desc">Price (High to Low)</option>
+          <option value="asc">Price (High to Low)</option>
+          <option value="desc">Price (Low to High)</option>
         </select>
       </div>
       <h2 className="text-center text-2xl font-bold border py-3 px-3 bg-info text-white">
